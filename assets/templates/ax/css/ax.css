@@ -566,36 +566,39 @@ html.ax-js [data-ax-reveal].is-in{opacity:1;transform:none}
 /* =====================================================================
    HERO (макет «Ремонт АКПП под контролем»)
    ===================================================================== */
-.ax-hero{--ax-hero-pt:clamp(64px,6.8vw,108px);position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:clamp(640px,49vw,780px);background:linear-gradient(180deg,#F7F7F8 0%,#F1F2F3 58%,#ECEDEF 100%)}
+.ax-hero{--ax-hero-pt:clamp(64px,6.8vw,108px);--ax-hero-left:max(26px,calc((100% - 1400px) / 2 + 26px));position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:clamp(640px,50vw,790px);background:linear-gradient(90deg,#FBFBFC 0%,#F8F8F9 30%,#F4F4F6 60%,#EEEFF0 100%)}
 .ax-hero__bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.ax-hero .ax-container.ax-hero__inner{max-width:1400px;padding:0 26px}
 .ax-hero__inner{position:relative;z-index:2;flex:1;display:flex;align-items:stretch}
-.ax-hero__content{position:relative;display:flex;flex-direction:column;align-items:flex-start;padding:var(--ax-hero-pt) 0 clamp(70px,7.4vw,116px);max-width:min(720px,calc(100% - 470px))}
-.ax-hero__bracket{position:absolute;left:-64px;top:calc(var(--ax-hero-pt) + 8px);width:58px;height:clamp(150px,12.4vw,192px);border-left:1px solid #D5D7DB;border-top:1px solid #D5D7DB;pointer-events:none}
+.ax-hero__content{position:relative;display:flex;flex-direction:column;align-items:flex-start;padding:var(--ax-hero-pt) 0 clamp(80px,9.6vw,150px);max-width:min(740px,calc(100% - 470px))}
+.ax-hero__bracket{position:absolute;left:-64px;top:calc(var(--ax-hero-pt) + 9px);width:56px;height:clamp(150px,12.1vw,186px);border-left:1px solid #D9DBDE;border-top:1px solid #D9DBDE;pointer-events:none}
 .ax-hero__tags{display:flex;flex-wrap:wrap;align-items:center;gap:6px 0;margin:0;padding:0;list-style:none}
-.ax-hero__tags li{display:inline-flex;align-items:center;font-family:var(--ax-font);font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#5D6168;line-height:1}
-.ax-hero__tags li+li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ax-red);margin:0 15px 0 12px}
-.ax-hero__title{margin:26px 0 0;font-family:var(--ax-cond);font-weight:800;font-size:clamp(44px,4.65vw,72px);line-height:.98;letter-spacing:.004em;text-transform:uppercase;color:#121418}
-.ax-hero__title span{display:block;color:var(--ax-red)}
+.ax-hero__tags li{display:inline-flex;align-items:center;font-family:var(--ax-font);font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#5A5E66;line-height:1}
+.ax-hero__tags li+li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ax-red);margin:0 14px 0 11px}
+.ax-hero__title{margin:32px 0 0;font-family:var(--ax-cond);font-weight:800;font-size:clamp(44px,4.8vw,74px);line-height:.96;letter-spacing:.003em;text-transform:uppercase;color:#121418}
+.ax-hero__title span{display:block;color:#E10F1F}
 .ax-hero__title,.ax-h2,.ax-h3{text-wrap:balance}
-.ax-hero__text{margin:36px 0 0;max-width:420px;font-size:17px;line-height:1.62;color:#50555E}
+.ax-hero__text{margin:32px 0 0;max-width:460px;font-size:16px;line-height:1.63;color:#555A62}
 .ax-hero__actions{margin-top:40px}
-.ax-btn--hero,.ax-btn--hero:visited{min-height:60px;min-width:248px;padding:0 26px 0 28px;gap:14px;border-radius:4px;font-size:15.5px;font-weight:700;letter-spacing:.005em;box-shadow:0 18px 34px rgba(208,16,34,.3)}
-.ax-btn--hero .ax-btn__arr{margin-left:16px}
+.ax-btn--hero,.ax-btn--hero:visited{min-height:61px;min-width:248px;padding:0 28px 0 34px;gap:12px;border-radius:4px;background:#E10F1F;border-color:#E10F1F;font-size:15px;font-weight:700;letter-spacing:0;box-shadow:0 16px 30px rgba(225,15,31,.28)}
+.ax-btn--hero:hover{background:#C20B19;border-color:#C20B19}
+.ax-btn--hero .ax-btn__arr{margin-left:18px}
 .ax-hero__adv{display:flex;align-items:center;margin:auto 0 0;padding:clamp(48px,6vw,104px) 0 0;list-style:none}
-.ax-adv{display:flex;align-items:center;gap:13px;padding:0 20px;position:relative}
+.ax-adv{display:flex;align-items:center;gap:11px;padding:0 24px;position:relative}
 .ax-adv:first-child{padding-left:0}
-.ax-adv+.ax-adv{border-left:1px solid #D9DBDF}
-.ax-adv__ic{width:42px;height:42px;flex-shrink:0;border-radius:50%;border:1px solid rgba(208,16,34,.32);background:rgba(255,255,255,.75);display:inline-flex;align-items:center;justify-content:center}
-.ax-adv__ic img{width:24px;height:24px}
-.ax-adv__title{font-size:13.5px;font-weight:500;line-height:1.36;color:#1D1F23;max-width:86px;text-shadow:0 0 10px #fff,0 0 4px rgba(255,255,255,.9)}
-.ax-hero__stats{position:absolute;z-index:3;top:clamp(28px,3vw,48px);right:calc(20px - clamp(0px,(100vw - 1300px) / 2,64px));display:flex;gap:16px;margin:0;padding:0;list-style:none}
-.ax-hstat{display:flex;flex-direction:column;width:138px;min-height:143px;padding:18px 20px 18px;border-radius:12px;background:rgba(255,255,255,.9);border:1px solid #fff;box-shadow:0 16px 34px rgba(18,20,24,.07)}
-.ax-hstat__ic{width:30px;height:30px}
-.ax-hstat__num{margin-top:auto;font-family:var(--ax-wide);font-weight:800;font-size:30px;line-height:1;letter-spacing:-.01em;color:var(--ax-red)}
-.ax-hstat__label{margin-top:7px;font-size:13px;line-height:1.3;color:#5D6168}
-.ax-hero__car{position:absolute;z-index:1;right:-3.4vw;bottom:clamp(40px,3.9vw,62px);width:min(71vw,1240px);max-width:none;height:auto;pointer-events:none;filter:drop-shadow(0 30px 24px rgba(18,20,24,.12))}
-.ax-hero__dot{position:absolute;z-index:2;left:max(8px,calc((100vw - 1280px) / 2 - 2px));bottom:32px;width:6px;height:6px;border-radius:50%;background:var(--ax-red)}
-@media (max-width:1359px){.ax-hero__bracket{display:none}}
+.ax-adv+.ax-adv{border-left:1px solid #DCDEE1}
+.ax-adv__ic{width:40px;height:40px;flex-shrink:0;border-radius:50%;border:1px solid rgba(225,15,31,.3);background:rgba(255,255,255,.7);display:inline-flex;align-items:center;justify-content:center}
+.ax-adv__ic img{width:20px;height:20px}
+.ax-adv__title{font-size:13px;font-weight:500;line-height:1.33;color:#1B1D21;max-width:84px;text-shadow:0 0 10px #fff,0 0 4px rgba(255,255,255,.9)}
+.ax-hero__stats{position:absolute;z-index:3;top:clamp(28px,3.2vw,50px);right:calc(26px - clamp(0px,(100vw - 1400px) / 2 - 14px,64px));display:flex;gap:16px;margin:0;padding:0;list-style:none}
+.ax-hstat{display:flex;flex-direction:column;width:138px;min-height:142px;padding:20px 20px 19px;border-radius:12px;background:linear-gradient(180deg,#FCFCFD 0%,#F8F8F9 100%);border:1px solid #EFF0F2;box-shadow:0 12px 28px rgba(18,20,24,.06)}
+.ax-hstat__ic{width:22px;height:22px}
+.ax-hstat__num{margin-top:auto;font-family:var(--ax-wide);font-weight:800;font-size:31px;line-height:1;letter-spacing:-.005em;color:#E10F1F}
+.ax-hstat__label{margin-top:8px;font-size:13px;line-height:1.3;color:#5A5E66}
+.ax-hero__car{position:absolute;z-index:1;right:-5.3vw;bottom:clamp(40px,5.2vw,84px);width:76.3vw;max-width:1220px;height:auto;pointer-events:none;filter:drop-shadow(0 30px 24px rgba(18,20,24,.12))}
+.ax-hero__dot{position:absolute;z-index:2;left:calc(var(--ax-hero-left) - 22px);bottom:54px;width:6px;height:6px;border-radius:50%;background:#E10F1F}
+.ax-hero__progress{position:absolute;z-index:2;left:calc(var(--ax-hero-left) - 10px);bottom:20px;width:230px;height:2px;background:linear-gradient(#D7D9DC,#D7D9DC) 0 100%/100% 1px no-repeat,linear-gradient(#E10F1F,#E10F1F) 47px 0/48px 2px no-repeat}
+@media (max-width:1359px){.ax-hero__bracket,.ax-hero__dot{display:none}}
 @media (max-width:1199px){
   .ax-hero__stats{gap:12px}
   .ax-hstat{width:124px;min-height:130px;padding:16px}
@@ -609,10 +612,11 @@ html.ax-js [data-ax-reveal].is-in{opacity:1;transform:none}
   .ax-hero__stats{position:static;margin-top:34px;width:100%}
   .ax-hstat{flex:1;width:auto}
   .ax-hero__car{position:relative;right:auto;bottom:auto;display:block;width:112%;margin:6px -6% 0 auto;max-width:none}
-  .ax-hero__dot{display:none}
+  .ax-hero__dot,.ax-hero__progress{display:none}
 }
 @media (max-width:767px){
   .ax-hero__content{padding-top:40px}
+  .ax-hero .ax-container.ax-hero__inner{padding:0 16px}
   .ax-hero__tags li{font-size:11px;letter-spacing:.16em}
   .ax-hero__tags li+li::before{margin:0 10px 0 8px}
   .ax-hero__title{margin-top:20px;font-size:clamp(30px,9vw,44px)}
