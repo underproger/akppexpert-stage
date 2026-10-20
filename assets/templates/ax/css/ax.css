@@ -337,6 +337,11 @@ html.ax-lock,html.ax-lock body{overflow:hidden}
 .ax-price__val{color:#fff;font-weight:500;white-space:nowrap}
 .ax-price--accent .ax-price__val{background:var(--ax-red);border-radius:30px;padding:5px 16px;box-shadow:0 8px 20px rgba(208,16,34,.45)}
 .ax-prices__note{margin:18px 0 24px;font-size:13px;line-height:1.6;color:rgba(255,255,255,.55)}
+.ax-prices__note em{font-style:normal}
+.ax-prices__note--top{margin:0 0 16px}
+.ax-pricelist__head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:0 0 14px;margin-bottom:4px;border-bottom:1px solid rgba(255,255,255,.12);font-size:12.5px;line-height:1.45;color:rgba(255,255,255,.55)}
+.ax-pricelist__head span:first-child{max-width:70%}
+.ax-pricelist__head span:last-child{white-space:nowrap;color:rgba(255,255,255,.8);font-weight:500}
 .ax-prices__note p{margin:0 0 .5em}
 
 /* =====================================================================
@@ -564,13 +569,14 @@ html.ax-js [data-ax-reveal].is-in{opacity:1;transform:none}
 .ax-hero{--ax-hero-pt:clamp(64px,6.8vw,108px);position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:clamp(640px,49vw,780px);background:linear-gradient(180deg,#F7F7F8 0%,#F1F2F3 58%,#ECEDEF 100%)}
 .ax-hero__bg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .ax-hero__inner{position:relative;z-index:2;flex:1;display:flex;align-items:stretch}
-.ax-hero__content{position:relative;display:flex;flex-direction:column;align-items:flex-start;padding:var(--ax-hero-pt) 0 clamp(70px,7.4vw,116px);max-width:640px}
+.ax-hero__content{position:relative;display:flex;flex-direction:column;align-items:flex-start;padding:var(--ax-hero-pt) 0 clamp(70px,7.4vw,116px);max-width:min(720px,calc(100% - 470px))}
 .ax-hero__bracket{position:absolute;left:-64px;top:calc(var(--ax-hero-pt) + 8px);width:58px;height:clamp(150px,12.4vw,192px);border-left:1px solid #D5D7DB;border-top:1px solid #D5D7DB;pointer-events:none}
 .ax-hero__tags{display:flex;flex-wrap:wrap;align-items:center;gap:6px 0;margin:0;padding:0;list-style:none}
 .ax-hero__tags li{display:inline-flex;align-items:center;font-family:var(--ax-font);font-size:12.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#5D6168;line-height:1}
 .ax-hero__tags li+li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ax-red);margin:0 15px 0 12px}
 .ax-hero__title{margin:26px 0 0;font-family:var(--ax-cond);font-weight:800;font-size:clamp(44px,4.65vw,72px);line-height:.98;letter-spacing:.004em;text-transform:uppercase;color:#121418}
 .ax-hero__title span{display:block;color:var(--ax-red)}
+.ax-hero__title,.ax-h2,.ax-h3{text-wrap:balance}
 .ax-hero__text{margin:36px 0 0;max-width:420px;font-size:17px;line-height:1.62;color:#50555E}
 .ax-hero__actions{margin-top:40px}
 .ax-btn--hero,.ax-btn--hero:visited{min-height:60px;min-width:248px;padding:0 26px 0 28px;gap:14px;border-radius:4px;font-size:15.5px;font-weight:700;letter-spacing:.005em;box-shadow:0 18px 34px rgba(208,16,34,.3)}
@@ -609,7 +615,7 @@ html.ax-js [data-ax-reveal].is-in{opacity:1;transform:none}
   .ax-hero__content{padding-top:40px}
   .ax-hero__tags li{font-size:11px;letter-spacing:.16em}
   .ax-hero__tags li+li::before{margin:0 10px 0 8px}
-  .ax-hero__title{margin-top:20px;font-size:clamp(36px,10.6vw,46px)}
+  .ax-hero__title{margin-top:20px;font-size:clamp(30px,9vw,44px)}
   .ax-hero__text{margin-top:20px;font-size:16px}
   .ax-hero__actions{margin-top:28px;width:100%}
   .ax-btn--hero{width:100%}
@@ -637,7 +643,7 @@ html.ax-js [data-ax-reveal].is-in{opacity:1;transform:none}
 .ax-eyebrow--circuit{display:flex;align-items:center;gap:12px;margin-bottom:22px}
 .ax-eyebrow--circuit span{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#2A2D33}
 .ax-eyebrow--circuit svg{margin-top:-10px;flex-shrink:0;max-width:62%}
-.ax-about__title{font-size:clamp(40px,4.6vw,64px);line-height:.98;max-width:8.8em}
+.ax-about__title{font-size:clamp(38px,3.9vw,56px);line-height:.98}
 .ax-about__lead{margin:22px 0 28px;max-width:560px;font-size:15.5px;line-height:1.68;color:#50555E}
 .ax-feats{display:grid;grid-template-columns:1fr 1.05fr 1.36fr;gap:14px;margin:0;padding:0;list-style:none}
 .ax-feat{display:flex;align-items:center;gap:11px;min-height:98px;padding:14px 8px 14px 12px;background:#fff;border:1px solid #ECEDEF;border-radius:8px;box-shadow:0 6px 16px rgba(18,20,24,.03);transition:border-color .25s,box-shadow .25s}
