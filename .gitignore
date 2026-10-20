@@ -1,0 +1,8 @@
+# секреты: конфиг с доступами к БД кладётся на хостинг вручную
+core/config/config.inc.php
+# кэш MODX
+core/cache/*
+!core/cache/.gitkeep
+# дампы БД в репозиторий не кладём
+*.sql
+*.sql.gz

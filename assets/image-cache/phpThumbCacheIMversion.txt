@@ -1,0 +1,6 @@
+7.0.7-22 Q16
+Version: ImageMagick 7.0.7-22 Q16 x86_64 2018-02-06 http://www.imagemagick.org
+Copyright: © 1999-2018 ImageMagick Studio LLC
+License: http://www.imagemagick.org/script/license.php
+Features: Cipher DPC HDRI OpenMP 
+Delegates (built-in): bzlib fontconfig freetype jng jpeg lzma png tiff webp xml zlib

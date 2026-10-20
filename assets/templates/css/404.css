@@ -1,0 +1,174 @@
+body{
+    overflow-x: hidden;overflow-y: auto;position: relative;height: 100%;
+}
+.wrapper{
+    font-family: "PTSansRegular";
+    position: relative;height: 100vh;
+}
+.header-bg-hide{
+    position: absolute;height: 100%;width: 100%;top: 0;left: 0;bottom: 0;right: 0;
+    overflow: hidden;z-index: -1; 
+}
+.header-bg{
+    position: absolute;height: 100%;width: 100%;top: 0;left: 0;z-index: -2;
+    background-image: url(/images/design/404.jpg);
+    background-repeat: no-repeat;background-position: center;background-size: cover;
+}
+.content-eror-bg{
+    position: absolute;min-width: 800px;max-width: 900px;top: 50%;left: 50%;z-index: 9;
+    -moz-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);transform: translate(-50%,-50%);
+}
+.content-eror{
+    padding: 3%;
+    text-align: center;color: white;
+}
+h1{
+    font-family: "PTSansBold";text-transform: uppercase;font-size: 70px;
+}
+h4{
+    font-family: "PTSansRegular";text-transform: uppercase;font-size: 25px;
+    margin: 20px auto 22px;
+}
+.titl-eror{
+    font-family: "PTSansBold";text-transform: uppercase;font-size: 32px;line-height: 1.4;
+    margin: 20px auto 20px;
+}
+p{
+    font-size: 17px;line-height: 1.5;color: #d9d9d9;
+}
+ul li{
+    font-size: 17px;color: #d9d9d9;line-height: 1.5;
+    padding: 2px 0px 2px 0px;
+}
+a.main{
+    display: inline-block;margin: 0 auto 10px;padding: 12px 25px;border: 1px solid #ffffff;
+    font-family: "PTSansRegular";font-size: 13px;letter-spacing: 1px;color: #ffffff;text-decoration: none;text-transform: uppercase;
+    position: relative;overflow: hidden;z-index: 1;
+    transition:all 0.6s ease;
+    -webkit-transition:all 0.6s ease;
+    -moz-transition:all 0.6s ease;
+    -o-transition:all 0.6s ease;
+}
+a.main:hover{color: #333;}
+a.main:before {
+    content: '';z-index: -1;height: 250px;background: #ffffff;position: absolute;top: 70px;right: 70px;width: 500px;
+    transition:all 0.6s ease;
+    -webkit-transition:all 0.6s ease;
+    -moz-transition:all 0.6s ease;
+    -o-transition:all 0.6s ease;
+    -o-transform: rotate(50deg);-ms-transform: rotate(50deg);-moz-transform: rotate(50deg);-webkit-transform: rotate(50deg);transform: rotate(50deg);
+}
+a.main:hover:before {
+    top: -90px;right: -160px;
+}
+a.retun{
+    font-size: 14px;text-transform: uppercase;
+}
+a.retun:link, a.retun:visited, a.retun:active,
+a.retun:focus{
+    color: #fff;
+}
+a.retun:hover{
+    color: #ccc;text-decoration: underline;
+}
+@font-face {
+    font-family: "PTSansRegular";
+    src: url("../fonts/PTSansRegular/PTSansRegular.eot");
+    src: url("../fonts/UPTSansRegular/PTSansRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/PTSansRegular/PTSansRegular.woff") format("woff"),
+    url("../fonts/PTSansRegular/PTSansRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "PTSansBold";
+    src: url("../fonts/PTSansBold/PTSansBold.eot");
+    src: url("../fonts/PTSansBold/PTSansBold.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/PTSansBold/PTSansBold.woff") format("woff"),
+    url("../fonts/PTSansBold/pfbeausanspro-semibold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@media screen and (max-width:1366px){
+    h1{font-size: 55px;}
+    h4{font-size: 27px;}
+    .titl-eror{font-size: 30px;}
+}
+@media screen and (max-width:1200px){
+    h1{font-size: 45px;}
+    .titl-eror{font-size: 27px;}
+    h4{font-size: 25px;}
+    .content-eror-bg{min-width: 600px;}
+}
+@media screen and (max-width:700px){
+    .content-eror-bg{
+        min-width: 100px;
+        position: relative;
+        padding: 4em 0 2em;
+        top: 0%;
+        left: 0%;
+        -ms-transform: translate(0%,0%);
+        -webkit-transform: translate(0%,0%);
+        -o-transform: translate(0%,0%);
+        transform: translate(0%,0%);
+    }
+}
+@media screen and (max-width:600px){
+    h1{font-size: 36px;}
+    .titl-eror{font-size: 23px;}
+    h4{font-size: 23px;}
+}
+
+/* banner anim */
+
+.header-bg{
+    animation-name: zoom-img;
+    -webkit-animation-name: zoom-img ;
+    -moz-animation-name: zoom-img ;
+    -o-animation-name: zoom-img ;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+}
+@-webkit-keyframes zoom-img {
+from {
+    -webkit-transform: rotate(0deg) scale(1.1) skew(0deg) translateY(0px) ;
+    -moz-transform: rotate(0deg) scale(1.1) skew(0deg) translateY(0px) ;
+    -o-transform: rotate(0deg) scale(1.1) skew(0deg) translateY(0px) ;
+ }
+to {
+    -webkit-transform: rotate(0deg) scale(1.0) skew(0deg) translateY(0px) ;
+    -moz-transform: rotate(0deg) scale(1.0) skew(0deg) translateY(0px) ;
+    -o-transform: rotate(0deg) scale(1.0) skew(0deg) translateY(0px) ;
+ }
+}
+@-moz-keyframes zoom-img {
+from {
+    -webkit-transform: rotate(0deg) scale(1.1) skew(0deg) translateY(0px) ;
+    -moz-transform: rotate(0deg) scale(1.1) skew(0deg) translateY(0px) ;
+    -o-transform: rotate(0deg) scale(1.1) skew(0deg) translateY(0px) ;
+ }
+to {
+    -webkit-transform: rotate(0deg) scale(1.0) skew(0deg) translateY(0px) ;
+    -moz-transform: rotate(0deg) scale(1.0) skew(0deg) translateY(0px) ;
+    -o-transform: rotate(0deg) scale(1.0) skew(0deg) translateY(0px) ;
+ }
+}
+@-o-keyframes zoom-img {
+from {
+    -webkit-transform: rotate(0deg) scale(1.1) skew(0deg) translateY(0px) ;
+    -moz-transform: rotate(0deg) scale(1.1) skew(0deg) translateY(0px) ;
+    -o-transform: rotate(0deg) scale(1.1) skew(0deg) translateY(0px) ;
+ }
+to {
+    -webkit-transform: rotate(0deg) scale(1.0) skew(0deg) translateY(0px) ;
+    -moz-transform: rotate(0deg) scale(1.0) skew(0deg) translateY(0px) ;
+    -o-transform: rotate(0deg) scale(1.0) skew(0deg) translateY(0px) ;
+ }
+}

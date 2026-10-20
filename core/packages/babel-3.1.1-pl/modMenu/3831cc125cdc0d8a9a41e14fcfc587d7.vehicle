@@ -1,0 +1,30 @@
+<?php return array (
+  'preserve_keys' => true,
+  'update_object' => true,
+  'unique_key' => 'text',
+  'related_objects' => true,
+  'related_object_attributes' => 
+  array (
+    'Action' => 
+    array (
+      'preserve_keys' => false,
+      'update_object' => true,
+      'unique_key' => 
+      array (
+        0 => 'namespace',
+        1 => 'controller',
+      ),
+    ),
+  ),
+  'namespace' => 'babel',
+  'resolve' => NULL,
+  'validate' => NULL,
+  'vehicle_package' => 'transport',
+  'vehicle_class' => 'xPDOObjectVehicle',
+  'guid' => 'a4bb4e7ed5c42f89921cfb1e72d98a79',
+  'package' => 'modx',
+  'class' => 'modMenu',
+  'signature' => '3831cc125cdc0d8a9a41e14fcfc587d7',
+  'native_key' => 'babel',
+  'object' => '{"text":"babel","parent":"components","action":"index","description":"babel.desc","icon":"","menuindex":0,"params":"","handler":"","permissions":"","namespace":"babel"}',
+);
