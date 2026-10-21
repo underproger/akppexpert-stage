@@ -1023,8 +1023,8 @@ a.ax-brand:hover{transform:translateY(-3px);box-shadow:0 18px 32px rgba(18,20,24
 .ax-bmeta svg{flex-shrink:0;color:var(--ax-red)}
 .ax-bmeta a,.ax-bmeta a:visited{display:inline-flex;align-items:center;gap:7px;color:inherit;text-decoration:none}
 .ax-bmeta a:hover{color:var(--ax-red)}
-.ax-bmeta__tag a,.ax-bmeta__tag a:visited{padding:6px 12px;border-radius:999px;background:var(--ax-red);color:#fff;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
-.ax-bmeta__tag a:hover{background:#B30C1B;color:#fff}
+.ax-bmeta__tag a,.ax-bmeta__tag a:visited{height:30px;padding:0 13px 0 14px;border:1px solid rgba(208,16,34,.35);border-radius:999px;background:rgba(255,255,255,.75);color:var(--ax-red);font-size:12px;font-weight:500;line-height:1;letter-spacing:.12em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s}
+.ax-bmeta__tag a:hover{background:var(--ax-red);border-color:var(--ax-red);color:#fff}
 .ax-bmeta--sm{gap:6px 16px;margin-top:12px;font-size:13px}
 .ax-bmeta--sm svg{color:#9AA0A8}
 /* пагинация pdoPage */
@@ -1093,3 +1093,18 @@ a.ax-brand:hover{transform:translateY(-3px);box-shadow:0 18px 32px rgba(18,20,24
   .ax-bpost__rating .rating-info-r{display:block;margin:8px 0 0}
 }
 .ax-page--blog .ax-footer,.ax-page--post .ax-footer{margin-top:0}
+/* оценка статьи (SimpleRating): звёзды масками вместо старого спрайта; ширина 130px = 5 × 26px — её же использует JS компонента */
+.ax-bpost__rating .rating{position:relative;display:inline-block;vertical-align:middle;width:130px;height:26px}
+.ax-bpost__rating .rating__best,.ax-bpost__rating .rating__current,.ax-bpost__rating .rating__star{-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z'/%3E%3C/svg%3E") 0 0/26px 26px repeat-x;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9z'/%3E%3C/svg%3E") 0 0/26px 26px repeat-x}
+.ax-bpost__rating .rating__best{position:absolute;inset:0;background:#D5D7DB}
+.ax-bpost__rating .rating__current{position:absolute;left:0;top:0;height:26px;max-width:130px;background:#F5A524;transition:opacity .15s}
+.ax-bpost__rating .rating__star{position:absolute;top:0;width:26px;height:26px;background:transparent}
+.ax-bpost__rating .rating_active .rating__star{cursor:pointer}
+.ax-bpost__rating .rating_active .rating__best:hover .rating__current{opacity:0}
+.ax-bpost__rating .rating_active .rating__star:hover,.ax-bpost__rating .rating_active .rating__star:hover~.rating__star{background:#F5A524}
+.ax-bpost__rating .rating__star_1{left:0}
+.ax-bpost__rating .rating__star_2{left:26px}
+.ax-bpost__rating .rating__star_3{left:52px}
+.ax-bpost__rating .rating__star_4{left:78px}
+.ax-bpost__rating .rating__star_5{left:104px}
+.ax-bpost__rating .rating-info-r{display:inline-block;vertical-align:middle}
