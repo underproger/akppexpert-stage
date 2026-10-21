@@ -987,3 +987,11 @@ a.ax-brand:hover{transform:translateY(-3px);box-shadow:0 18px 32px rgba(18,20,24
   .ax-svc-prices__facts li{flex-direction:column;gap:2px}
   .ax-svc-prices__facts span{text-align:left}
 }
+/* простой баннер внутренних страниц (Контакты, Цены) */
+.ax-phero{position:relative;overflow:hidden;padding:clamp(30px,3.4vw,48px) 0 clamp(50px,5vw,76px);background:linear-gradient(90deg,#FBFBFC 0%,#F8F8F9 30%,#F4F4F6 60%,#EEEFF0 100%)}
+.ax-phero__inner{position:relative;z-index:1}
+.ax-phero__title{max-width:900px}
+.ax-svc-prices--page .ax-prices__grid{align-items:center}
+.ax-svc-prices--page .ax-svc-prices__text{font-size:16px;max-width:520px}
+.ax-page-text{padding:70px 0 0}
+@media (max-width:767px){.ax-phero{padding:22px 0 40px}}
