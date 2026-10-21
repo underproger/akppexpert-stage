@@ -8,7 +8,6 @@
   --ab-head:var(--ax-head);--ab-mono:var(--ax-font);--ab-num:var(--ax-cond);
   background:var(--ab-bg)
 }
-.ax-page--about .ax-footer{margin-top:0}
 .ax-main.ab{overflow:hidden;overflow:clip}
 .ab{background:var(--ab-bg);font-family:var(--ax-font)}
 .ab-wrap{position:relative;width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
@@ -159,7 +158,7 @@
 /* =====================================================================
    9. ПРИЧИНЫ
    ===================================================================== */
-.ab-reasons{padding-bottom:clamp(90px,9.4vw,130px)}
+.ab-reasons{padding-bottom:0}
 .ab-reasons .ab-h2{max-width:560px}
 .ab-reasons__list{margin:clamp(40px,4.4vw,64px) 0 0;padding:0;list-style:none;border-top:1px solid #D3D6DA}
 .ab-reason{display:grid;grid-template-columns:minmax(0,379fr) minmax(0,250fr) minmax(0,452fr);gap:0;align-items:start;padding:24px 0 26px;border-bottom:1px solid #D3D6DA}
