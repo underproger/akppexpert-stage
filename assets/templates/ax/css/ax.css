@@ -533,7 +533,7 @@ div.jGrowl div.jGrowl-notification .jGrowl-close{position:absolute;top:12px !imp
 /* =====================================================================
    SEO-текст
    ===================================================================== */
-.ax-seo{padding-top:20px}
+.ax-section.ax-seo{padding-bottom:0}
 .ax-seo__box{position:relative;background:#fff;border:1px solid var(--ax-line);border-radius:var(--ax-radius-lg);padding:46px 50px 34px}
 .ax-seo__text{column-count:2;column-gap:56px}
 .ax-seo__text h2,.ax-seo__text h3{break-after:avoid}
