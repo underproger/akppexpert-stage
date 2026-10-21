@@ -449,6 +449,11 @@ html.ax-lock,html.ax-lock body{overflow:hidden}
 .ax-slider{position:relative}
 .ax-slider__track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 2px 30px;margin:-4px -2px 0}
 .ax-slider__track::-webkit-scrollbar{display:none}
+@media (hover:hover) and (pointer:fine){.ax-slider__track{cursor:grab}}
+.ax-slider__track.is-dragging{cursor:grabbing;-webkit-user-select:none;user-select:none}
+.ax-slider__track.is-dragging *{pointer-events:none}
+.ax-slider__track.no-snap{scroll-snap-type:none;scroll-behavior:auto}
+.ax-slider.is-static .ax-slider__nav{display:none}
 .ax-review{position:relative;flex:0 0 calc((100% - 44px)/3);scroll-snap-align:start;display:flex;flex-direction:column;gap:16px;background:#fff;border:1px solid var(--ax-line);border-radius:var(--ax-radius);padding:30px 30px 26px;transition:box-shadow .3s,border-color .3s}
 .ax-review:hover{box-shadow:var(--ax-shadow);border-color:transparent}
 .ax-review__quote{position:absolute;right:28px;top:28px;color:var(--ax-red);opacity:.14}
@@ -692,7 +697,20 @@ html.ax-js [data-ax-reveal].is-in{opacity:1;transform:none}
 .ax-about__grid{display:grid;grid-template-columns:minmax(0,545fr) minmax(0,576fr);gap:clamp(40px,4.6vw,60px);align-items:center}
 .ax-about__media{position:relative}
 .ax-about__deco{position:absolute;left:-10.3%;top:-17.6%;width:117.4%;height:auto;pointer-events:none;overflow:visible}
-.ax-about__img{position:relative;z-index:1;display:block;width:100%;aspect-ratio:545/527;object-fit:cover;border-radius:18px;box-shadow:0 26px 54px rgba(18,20,24,.13)}
+.ax-about__slider{position:relative;z-index:1;border-radius:18px;overflow:hidden;background:#E9EAEC;box-shadow:0 26px 54px rgba(18,20,24,.13)}
+.ax-about__slider::after{content:"";position:absolute;left:0;right:0;bottom:0;height:110px;background:linear-gradient(180deg,rgba(18,20,24,0),rgba(18,20,24,.5));pointer-events:none}
+.ax-slider__track.ax-about__track{gap:0;padding:0;margin:0}
+.ax-about__slide{position:relative;flex:0 0 100%;margin:0;aspect-ratio:545/527;scroll-snap-align:start}
+.ax-about__slide img{display:block;width:100%;height:100%;object-fit:cover;-webkit-user-drag:none}
+.ax-about__cap{position:absolute;left:20px;bottom:74px;z-index:1;display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:10px;background:rgba(18,20,24,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#fff;line-height:1.3}
+.ax-about__cap b{font-size:15px;font-weight:700}
+.ax-about__cap span{font-size:12.5px;color:rgba(255,255,255,.75)}
+.ax-slider__nav.ax-about__nav{position:absolute;left:20px;right:20px;bottom:18px;z-index:2;margin:0;gap:14px}
+.ax-about__nav .ax-slider__btn{width:42px;height:42px;border:0;background:rgba(255,255,255,.94);color:var(--ax-ink)}
+.ax-about__nav .ax-slider__btn:hover{background:var(--ax-red);color:#fff}
+.ax-about__nav .ax-slider__btn:disabled{opacity:.45}
+.ax-about__nav .ax-slider__bar{max-width:none;background:rgba(255,255,255,.35)}
+.ax-about__more{margin-top:26px}
 .ax-eyebrow--circuit{display:flex;align-items:center;gap:12px;margin-bottom:22px}
 .ax-eyebrow--circuit span{font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#2A2D33}
 .ax-eyebrow--circuit svg{margin-top:-10px;flex-shrink:0;max-width:62%}
