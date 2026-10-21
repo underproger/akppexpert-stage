@@ -217,6 +217,72 @@
     update();
   });
 
+  /* ---------- Страница «О нас» ---------- */
+  // этапы: номер слева «залипает» и меняется вместе с прокруткой
+  $$('[data-ab-steps]').forEach(function (sec) {
+    var items = $$('.ab-step', sec), num = $('[data-ab-num]', sec), cur = $('[data-ab-cur]', sec), bar = $('[data-ab-bar]', sec);
+    var total = items.length, last = -1;
+    if (!total) return;
+    function set(i) {
+      if (i === last) return;
+      last = i;
+      var n = items[i].getAttribute('data-n');
+      items.forEach(function (it, k) { it.classList.toggle('is-active', k === i); it.classList.toggle('is-past', k < i); });
+      if (num && num.textContent !== n) { num.classList.remove('is-swap'); void num.offsetWidth; num.textContent = n; num.classList.add('is-swap'); }
+      if (cur) cur.textContent = n;
+      if (bar) bar.style.width = ((i + 1) / total * 100) + '%';
+    }
+    function check() {
+      var mid = window.innerHeight * 0.5, best = 0, bd = Infinity;
+      items.forEach(function (it, k) {
+        var r = it.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - mid);
+        if (d < bd) { bd = d; best = k; }
+      });
+      set(best);
+    }
+    window.addEventListener('scroll', function () { window.requestAnimationFrame(check); }, { passive: true });
+    window.addEventListener('resize', check);
+    check();
+  });
+
+  // цитата: слова «проявляются» из серого в чёрный по мере прокрутки
+  $$('[data-ab-words]').forEach(function (q) {
+    var words = [];
+    (function wrap(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (ch) {
+        if (ch.nodeType === 3) {
+          var frag = doc.createDocumentFragment();
+          ch.nodeValue.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(doc.createTextNode(part)); return; }
+            var sp = doc.createElement('span'); sp.className = 'ab-w'; sp.textContent = part; words.push(sp); frag.appendChild(sp);
+          });
+          ch.parentNode.replaceChild(frag, ch);
+        } else if (ch.nodeType === 1) { wrap(ch); }
+      });
+    })(q);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { words.forEach(function (w) { w.classList.add('is-on'); }); return; }
+    function upd() {
+      var r = q.getBoundingClientRect(), vh = window.innerHeight;
+      var p = (vh * 0.82 - r.top) / (r.height + vh * 0.3);
+      p = Math.max(0, Math.min(1, p));
+      var n = Math.round(p * words.length);
+      words.forEach(function (w, k) { w.classList.toggle('is-on', k < n); });
+    }
+    window.addEventListener('scroll', function () { window.requestAnimationFrame(upd); }, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+  });
+
+  // правила: тёмная карточка следует за курсором
+  $$('[data-ab-rules]').forEach(function (list) {
+    var cards = $$('.ab-rule', list);
+    cards.forEach(function (c) {
+      c.addEventListener('mouseenter', function () { cards.forEach(function (x) { x.classList.toggle('is-active', x === c); }); });
+      c.addEventListener('focusin', function () { cards.forEach(function (x) { x.classList.toggle('is-active', x === c); }); });
+    });
+  });
+
   /* ---------- Ленивое видео ---------- */
   var videos = $$('[data-ax-lazyvideo]');
   function loadVideo(v) {
