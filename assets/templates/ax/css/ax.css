@@ -5,6 +5,8 @@
    ===================================================================== */
 
 /* ---------- Шрифты ---------- */
+@font-face{font-family:"AX Rubik";font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/rubik-cyrillic-600-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"AX Rubik";font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/rubik-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"AX Sofia";font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/sofia-sans-extra-condensed-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"AX Sofia";font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/sofia-sans-extra-condensed-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"AX Sofia";font-style:normal;font-weight:800;font-display:swap;src:url(../fonts/sofia-sans-extra-condensed-cyrillic-800-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
@@ -267,20 +269,36 @@ html.ax-lock,html.ax-lock body{overflow:hidden}
 /* =====================================================================
    УСЛУГИ
    ===================================================================== */
-.ax-services__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
-.ax-svc{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--ax-line);border-radius:var(--ax-radius);transition:box-shadow .35s var(--ax-ease),transform .35s var(--ax-ease),border-color .35s}
-.ax-svc__media{position:relative;display:block;aspect-ratio:16/10;background:#EEF0F2;overflow:hidden;border-radius:var(--ax-radius) var(--ax-radius) 0 0}
-.ax-svc__img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ax-ease)}
-.ax-svc__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,20,24,0) 55%,rgba(18,20,24,.25) 100%);pointer-events:none}
-.ax-svc__ic{position:absolute;left:24px;bottom:16px;z-index:2;width:58px;height:58px;border-radius:50%;background:#fff;box-shadow:0 10px 24px rgba(18,20,24,.12);display:inline-flex;align-items:center;justify-content:center}
-.ax-svc__body{display:flex;flex-direction:column;gap:14px;padding:24px 24px 24px;flex:1}
-.ax-svc__title{font-family:var(--ax-head);font-weight:800;font-size:25px;line-height:1.05;letter-spacing:.015em;text-transform:uppercase;color:var(--ax-ink);transition:color .25s}
-.ax-svc__more{margin-top:auto;display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:500;color:var(--ax-red)}
-.ax-svc__more svg{transition:transform .25s var(--ax-ease)}
-.ax-svc:hover{transform:translateY(-4px);box-shadow:var(--ax-shadow-lg);border-color:transparent}
-.ax-svc:hover .ax-svc__img{transform:scale(1.05)}
-.ax-svc:hover .ax-svc__title{color:var(--ax-red)}
-.ax-svc:hover .ax-svc__more svg{transform:translateX(5px)}
+.ax-services{padding:62px 0 74px;background:#F3F4F5}
+.ax-svhead{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:42px}
+.ax-svhead__title{display:flex;align-items:center;justify-content:center;gap:18px;margin:0;font-family:var(--ax-cond);font-weight:800;font-size:clamp(28px,2.4vw,36px);line-height:1.15;letter-spacing:0;color:#16181C;text-transform:none}
+.ax-svhead__line{position:relative;display:block;flex-shrink:0;width:88px;height:1px;margin-left:12px;background:var(--ax-red)}
+.ax-svhead__line::before{content:"";position:absolute;left:-12px;top:-2.5px;width:6px;height:6px;border-radius:50%;background:var(--ax-red)}
+.ax-svhead__line--r{margin:0 12px 0 0}
+.ax-svhead__line--r::before{left:auto;right:-12px}
+.ax-svhead__text{margin:16px 0 0;max-width:640px;font-size:15px;line-height:1.6;color:#555A62}
+.ax-svgrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:22px;max-width:1246px;margin:0 auto;padding:0;list-style:none}
+.ax-svgrid>li{display:flex}
+.ax-svcard,.ax-svcard:visited{flex:1;display:flex;flex-direction:column;align-items:center;min-height:216px;padding:38px 8px 28px;border-radius:8px;background:#FBFBFC;box-shadow:0 2px 10px rgba(18,20,24,.04);text-align:center;color:#16181C;text-decoration:none;transition:transform .3s var(--ax-ease),box-shadow .3s var(--ax-ease)}
+.ax-svcard__ic{display:flex;align-items:center;justify-content:center;width:92px;height:70px;flex-shrink:0}
+.ax-svcard__ic img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;transition:transform .35s var(--ax-ease)}
+.ax-svcard__title{display:block;max-width:9em;min-width:min-content;margin-top:30px;font-family:"AX Rubik",var(--ax-font);font-weight:600;font-size:14.5px;line-height:1.38;color:#16181C;text-wrap:balance;transition:color .25s}
+.ax-svcard:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(18,20,24,.09)}
+.ax-svcard:hover .ax-svcard__ic img{transform:scale(1.06)}
+.ax-svcard:hover .ax-svcard__title{color:var(--ax-red)}
+@media (max-width:1199px){.ax-svgrid{grid-template-columns:repeat(3,minmax(0,1fr));max-width:760px}}
+@media (max-width:767px){
+  .ax-services{padding:52px 0 58px}
+  .ax-svhead{margin-bottom:28px}
+  .ax-svhead__title{gap:12px}
+  .ax-svhead__line{width:36px}
+  .ax-svhead__text{font-size:14.5px}
+  .ax-svgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .ax-svcard{min-height:180px;padding:28px 10px 22px}
+  .ax-svcard__ic{width:80px;height:60px}
+  .ax-svcard__title{max-width:100%;margin-top:18px;font-size:min(13.5px,3.5vw);-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+}
+@media (max-width:420px){.ax-svcard{padding-left:6px;padding-right:6px}}
 
 /* =====================================================================
    О СЕРВИСЕ (фото команды + текст + преимущества) и НАШ ПОДХОД
@@ -788,7 +806,6 @@ a.ax-brand:hover{transform:translateY(-3px);box-shadow:0 18px 32px rgba(18,20,24
 }
 @media (max-width:1023px){
   .ax-head--split{flex-direction:column;align-items:flex-start;gap:18px}
-  .ax-services__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
   .ax-approach__grid,.ax-prices__grid,.ax-faq__grid,.ax-contacts__grid,.ax-cta__inner{grid-template-columns:1fr}
   .ax-faq__intro{position:static}
   .ax-article,.ax-article--reverse{grid-template-columns:1fr;gap:40px}
@@ -811,15 +828,6 @@ a.ax-brand:hover{transform:translateY(-3px);box-shadow:0 18px 32px rgba(18,20,24
   .ax-logo__word{width:132px}
   .ax-logo__icon{width:34px}
   .ax-logo__sub{font-size:10.5px}
-  .ax-services__grid{grid-template-columns:1fr;gap:14px}
-  .ax-svc{flex-direction:row;align-items:stretch}
-  .ax-svc__media{flex:0 0 118px;aspect-ratio:auto;min-height:118px;border-radius:var(--ax-radius) 0 0 var(--ax-radius)}
-  .ax-svc__media::after{display:none}
-  .ax-svc__ic{width:40px;height:40px;left:auto;right:-20px;top:50%;bottom:auto;margin-top:-20px}
-  .ax-svc__ic img{width:26px;height:26px}
-  .ax-svc__body{padding:16px 16px 16px 32px;gap:8px;justify-content:center}
-  .ax-svc__title{font-size:17px}
-  .ax-svc__more{margin-top:0;font-size:13px}
   .ax-prices__card{padding:26px 20px 24px;border-radius:18px}
   .ax-price{flex-wrap:wrap;font-size:14.5px;gap:4px 10px}
   .ax-price__dots{display:none}
