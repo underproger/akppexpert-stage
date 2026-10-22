@@ -371,8 +371,8 @@ html.ax-lock,html.ax-lock body{overflow:hidden}
 .ax-underline{display:block;width:120px;height:2px;margin:22px 0 26px;background:linear-gradient(90deg,var(--ax-red) 0 70%,transparent 70% 78%,var(--ax-red) 78% 84%,transparent 84%);position:relative}
 .ax-prices__sub{font-size:19px;line-height:1.45;font-weight:500;color:var(--ax-ink);max-width:420px;margin-bottom:16px}
 .ax-prices__text{font-size:15.5px;line-height:1.7;color:var(--ax-text);max-width:470px}
-.ax-prices__img{margin-top:26px;margin-left:-20px;max-width:620px}
-.ax-prices__img img{display:block;width:100%;-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mix-blend-mode:multiply}
+.ax-prices__img{margin-top:30px;max-width:560px}
+.ax-prices__img img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:18px;box-shadow:0 26px 54px rgba(18,20,24,.14)}
 .ax-prices__card{position:relative;background:linear-gradient(160deg,#2A2E35 0%,#1C1F24 45%,#15171B 100%);border-radius:22px;padding:34px 36px 32px;box-shadow:0 40px 80px rgba(18,20,24,.28),inset 0 0 0 1px rgba(255,255,255,.05);color:#fff;overflow:hidden}
 .ax-prices__card::before,.ax-prices__card::after{content:"";position:absolute;top:22%;bottom:22%;width:3px;border-radius:3px;background:linear-gradient(180deg,rgba(208,16,34,0),#FF2335 50%,rgba(208,16,34,0));box-shadow:0 0 18px 2px rgba(255,35,53,.55)}
 .ax-prices__card::before{left:0}
