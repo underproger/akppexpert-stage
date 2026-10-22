@@ -1108,3 +1108,48 @@ a.ax-brand:hover{transform:translateY(-3px);box-shadow:0 18px 32px rgba(18,20,24
 .ax-bpost__rating .rating__star_4{left:78px}
 .ax-bpost__rating .rating__star_5{left:104px}
 .ax-bpost__rating .rating-info-r{display:inline-block;vertical-align:middle}
+
+/* =====================================================================
+   МОДАЛКА «КОНСУЛЬТАЦИЯ» (кнопки data-ax-consult)
+   ===================================================================== */
+.ax-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;overflow-y:auto;overscroll-behavior:contain}
+.ax-modal[hidden]{display:none}
+.ax-modal__overlay{position:fixed;inset:0;background:rgba(12,13,16,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transition:opacity .3s var(--ax-ease)}
+.ax-modal__dialog{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);width:100%;max-width:940px;margin:auto;border-radius:26px;background:#fff;box-shadow:0 50px 120px rgba(0,0,0,.35);overflow:hidden;opacity:0;transform:translateY(24px) scale(.97);transition:opacity .3s var(--ax-ease),transform .35s var(--ax-ease)}
+.ax-modal.is-open .ax-modal__overlay{opacity:1}
+.ax-modal.is-open .ax-modal__dialog{opacity:1;transform:none}
+.ax-modal__close{position:absolute;right:16px;top:16px;z-index:3;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:0;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;cursor:pointer;transition:background .2s,transform .3s var(--ax-ease)}
+.ax-modal__close:hover{background:var(--ax-red);transform:rotate(90deg)}
+.ax-modal__close:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.ax-modal__info{position:relative;display:flex;flex-direction:column;align-items:flex-start;padding:46px 44px 40px;background:linear-gradient(90deg,#FBFBFC 0%,#F4F4F6 70%,#EEEFF0 100%);overflow:hidden}
+.ax-modal__deco{position:absolute;right:-60px;bottom:-60px;width:400px;height:400px;pointer-events:none}
+.ax-modal__info>*{position:relative}
+.ax-modal__info>.ax-modal__deco{position:absolute}
+.ax-modal__title{font-family:var(--ax-head);font-weight:800;font-size:clamp(34px,3.6vw,46px);line-height:1;letter-spacing:.012em;text-transform:uppercase;color:var(--ax-ink)}
+.ax-modal__title span{display:block;color:var(--ax-red)}
+.ax-modal__text{margin:18px 0 0;max-width:380px;font-size:15.5px;line-height:1.65;color:var(--ax-text)}
+.ax-modal__list{display:flex;flex-direction:column;gap:16px;margin:30px 0 0;padding:26px 0 0;list-style:none;border-top:1px solid #DFE1E5;width:100%}
+.ax-modal__list li{display:flex;align-items:center;gap:14px}
+.ax-modal__list .ax-ci__ic{width:44px;height:44px}
+.ax-modal__list li>span:last-child{display:flex;flex-direction:column;gap:2px;font-size:15px;font-weight:500;line-height:1.35;color:var(--ax-ink)}
+.ax-modal__list small{font-size:11.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#7A7F87}
+.ax-modal__list a,.ax-modal__list a:visited{font-size:18px;font-weight:700;color:var(--ax-ink);text-decoration:none;transition:color .2s}
+.ax-modal__list a:hover{color:var(--ax-red)}
+.ax-modal__form{display:flex}
+.ax-modal__form>*{flex:1}
+.ax-form--modal{justify-content:center;border-radius:0;box-shadow:none;padding:58px 40px 36px}
+.ax-form--modal .ax-form__title{padding-right:40px}
+@media (max-width:860px){
+  .ax-modal{align-items:flex-start;padding:12px}
+  .ax-modal__dialog{grid-template-columns:1fr;border-radius:20px}
+  .ax-modal__info{padding:30px 22px 24px}
+  .ax-modal__deco{width:280px;height:280px;right:-50px;bottom:-50px}
+  .ax-modal__title{font-size:32px;padding-right:44px}
+  .ax-modal__text{margin-top:12px;font-size:15px}
+  .ax-modal__list{margin-top:20px;padding-top:18px;gap:12px}
+  .ax-modal__list li:nth-child(n+2){display:none}
+  .ax-modal__close{background:rgba(18,20,24,.06);color:var(--ax-ink)}
+  .ax-form--modal{padding:28px 22px 24px}
+  .ax-form--modal .ax-form__title{padding-right:0}
+}
+@media (prefers-reduced-motion:reduce){.ax-modal__overlay,.ax-modal__dialog{transition:none}}

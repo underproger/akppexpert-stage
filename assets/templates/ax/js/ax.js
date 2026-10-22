@@ -96,12 +96,62 @@
     window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
   }
   function findConsultTarget() { return $('#contacts') || $('#conract'); }
+
+  /* ---------- Модалка «Консультация» (кнопки с data-ax-consult) ---------- */
+  var modal = $('#axModal'), modalLast = null, modalTimer = null;
+  function modalFocusables() {
+    return $$('a[href], button:not([disabled]), input:not([type="hidden"]):not([disabled]), textarea, select', modal)
+      .filter(function (el) { return el.offsetParent !== null && !el.closest('.ax-hidden'); });
+  }
+  function modalOpen() {
+    if (!modal) return false;
+    clearTimeout(modalTimer);
+    modalLast = doc.activeElement;
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden', 'false');
+    html.classList.add('ax-lock');
+    void modal.offsetWidth;
+    modal.classList.add('is-open');
+    modalTimer = setTimeout(function () {
+      var f = $('input[name="name"]', modal);
+      if (f && window.matchMedia('(min-width: 768px)').matches) f.focus({ preventScroll: true });
+      else { var c = $('.ax-modal__close', modal); c && c.focus({ preventScroll: true }); }
+    }, 260);
+    return true;
+  }
+  function modalClose() {
+    if (!modal || modal.hidden) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    html.classList.remove('ax-lock');
+    clearTimeout(modalTimer);
+    modalTimer = setTimeout(function () { modal.hidden = true; }, 320);
+    if (modalLast && modalLast.focus) modalLast.focus({ preventScroll: true });
+  }
+  if (modal) {
+    $$('[data-ax-modal-close]', modal).forEach(function (el) { el.addEventListener('click', modalClose); });
+    doc.addEventListener('keydown', function (e) {
+      if (modal.hidden) return;
+      if (e.key === 'Escape') { modalClose(); return; }
+      if (e.key === 'Tab') {
+        var f = modalFocusables(); if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && doc.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && doc.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+  }
+
   doc.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a') : null;
     if (!a) return;
     if (a.hasAttribute('data-ax-consult')) {
-      var t = findConsultTarget();
-      if (t) { e.preventDefault(); mnavToggle(false); header && header.classList.remove('is-mega'); scrollToEl(t); }
+      e.preventDefault();
+      mnavToggle(false); header && header.classList.remove('is-mega');
+      if (!modalOpen()) {
+        var t = findConsultTarget();
+        if (t) scrollToEl(t); else window.location.href = a.href;
+      }
       return;
     }
     var href = a.getAttribute('href') || '';
